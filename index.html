@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>IIIT Sri City Alumni Network</title>
+   <style>
+      /* Global Styles */
+      body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+         background-color: #f7f2f7;
+      }
+      a {
+         text-decoration: none;
+         color: inherit;
+      }
+      h1, h2 {
+         color: #ff7675;
+      }
+      .container {
+         max-width: 1200px;
+         margin: auto;
+         padding: 20px;
+      }
+
+      /* Header */
+      .header {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 10px 20px;
+         background-color: #ffffff;
+         border-bottom: 2px solid #ff7675;
+      }
+      .header img {
+         width: 100px; /* Adjust the width as needed */
+         height: auto; /* Keeps the aspect ratio */
+      }
+      .header h1 {
+         margin: 0;
+         font-size: 24px;
+      }
+      .header .login-register {
+         font-size: 16px;
+      }
+      .login-register button {
+         padding: 8px 16px;
+         margin-left: 10px;
+         background-color: #ff7675;
+         color: #ffffff;
+         border: none;
+         cursor: pointer;
+         border-radius: 5px;
+      }
+
+      /* Slideshow */
+      .slideshow-container {
+         position: relative;
+         max-width: 100%;
+         margin: auto;
+         overflow: hidden;
+         margin-top: 20px;
+      }
+      .mySlides {
+         display: none;
+      }
+      .mySlides img {
+         width: 100%;
+      }
+      .prev, .next {
+         cursor: pointer;
+         position: absolute;
+         top: 50%;
+         padding: 16px;
+         color: white;
+         font-weight: bold;
+         transition: 0.6s ease;
+      }
+      .prev {
+         left: 0;
+      }
+      .next {
+         right: 0;
+      }
+
+      /* Gallery Section */
+      .gallery-section {
+         margin-top: 40px;
+         text-align: center;
+      }
+      .gallery-slides {
+         display: none;
+      }
+      .gallery-slides img {
+         width: 100%;
+         border-radius: 8px;
+      }
+      .gallery-button {
+         background-color: #ff7675;
+         color: white;
+         padding: 10px 20px;
+         border: none;
+         cursor: pointer;
+         border-radius: 5px;
+         margin-top: 20px;
+      }
+      .gallery-prev, .gallery-next {
+         cursor: pointer;
+         position: absolute;
+         top: 50%;
+         padding: 16px;
+         color: white;
+         font-weight: bold;
+         transition: 0.6s ease;
+      }
+      .gallery-prev {
+         left: 0;
+      }
+      .gallery-next {
+         right: 0;
+      }
+
+      /* Job Corner */
+      .job-corner {
+         margin-top: 40px;
+         padding: 20px;
+         background-color: #ffecec;
+         border-radius: 8px;
+      }
+      .job-corner ul {
+         list-style-type: none;
+         padding: 0;
+         margin: 0;
+      }
+      .job-corner li {
+         padding: 10px 0;
+         border-bottom: 1px solid #ccc;
+      }
+
+      /* Contact Button */
+      .contact-button {
+         display: inline-block;
+         margin-top: 20px;
+         padding: 10px 20px;
+         background-color: #ff7675;
+         color: white;
+         border: none;
+         cursor: pointer;
+         border-radius: 5px;
+      }
+   </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<div class="header">
+   <img src="images/IIIT-Sri-City.png" alt="IIIT Sri City Logo">
+   <h1>IIIT Sri City, Chittoor Alumni</h1>
+   <div class="login-register">
+      <button onclick="location.href='/login'">Login</button>
+      <button onclick="location.href='/register'">Register</button>
+   </div>
+</div>
+
+<!-- Slideshow Section -->
+<div class="slideshow-container">
+   <div class="mySlides">
+      <img src="images/convo1.png" alt="Achievement 1">
+   </div>
+   <div class="mySlides">
+      <img src="images/convo2.png" alt="Achievement 2">
+   </div>
+   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+   <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<!-- Gallery Section -->
+<div class="container">
+   <div class="gallery-section">
+      <h2>Gallery</h2>
+      <div class="slideshow-container">
+         <div class="gallery-slides">
+            <img src="images/drone.png" alt="Event Thumbnail">
+         </div>
+         <div class="gallery-slides">
+            <img src="thumbnail2.jpg" alt="Event Thumbnail">
+         </div>
+         <div class="gallery-slides">
+            <img src="thumbnail3.jpg" alt="Event Thumbnail">
+         </div>
+         <a class="gallery-prev" onclick="plusGallerySlides(-1)">&#10094;</a>
+         <a class="gallery-next" onclick="plusGallerySlides(1)">&#10095;</a>
+      </div>
+      <button onclick="location.href='/gallery'" class="gallery-button">Gallery</button>
+   </div>
+
+   <!-- Job Corner Section -->
+   <div class="job-corner">
+      <h2>Job Corner</h2>
+      <ul>
+         <li>John Doe - Software Engineer at Google</li>
+         <li>Jane Smith - Data Scientist at Microsoft</li>
+         <li>Mike Johnson - Product Manager at Amazon</li>
+      </ul>
+   </div>
+
+   <!-- Contact Button -->
+   <button onclick="location.href='/contact'" class="contact-button">Contact Us</button>
+</div>
+
+<!-- JavaScript for Slideshow -->
+<script>
+   let slideIndex = 1;
+   showSlides(slideIndex);
+
+   function plusSlides(n) {
+      showSlides(slideIndex += n);
+   }
+
+   function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+         slides[i].style.display = "none";
+      }
+      slides[slideIndex-1].style.display = "block";
+   }
+
+   let galleryIndex = 1;
+   showGallerySlides(galleryIndex);
+
+   function plusGallerySlides(n) {
+      showGallerySlides(galleryIndex += n);
+   }
+
+   function showGallerySlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("gallery-slides");
+      if (n > slides.length) {galleryIndex = 1}
+      if (n < 1) {galleryIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+         slides[i].style.display = "none";
+      }
+      slides[galleryIndex-1].style.display = "block";
+   }
+</script>
+
+</body>
+</html>
